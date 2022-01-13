@@ -42,7 +42,7 @@ function displayBook(newBook) {
     bookTitleDiv.innerText = "Title: " + (newBook.title == "" ? "N/A" : newBook.title);
     bookAuthorDiv.innerText = "Author: " + (newBook.author == "" ? "N/A" : newBook.author);
     bookPagesDiv.innerText = "# of Pages: " + (newBook.numOfPages == "" ? "N/A" : newBook.numOfPages);
-    bookReadDiv.innerText = "Reading Status: " + (newBook.read == "" ? "N/A" : newBook.read);
+    bookReadDiv.innerText = "Reading Status: " + newBook.read;
 
     bookDiv.appendChild(bookTitleDiv);
     bookDiv.appendChild(bookAuthorDiv);
@@ -63,6 +63,7 @@ function displayBook(newBook) {
     bookDiv.appendChild(toggleRead);
     toggleRead.innerText = (newBook.read == "Read") ? "Unread book" : "Fnish book";
     toggleRead.addEventListener('click', () => {
+        toggleRead.innerText = (newBook.read != "Read") ? "Unread book" : "Fnish book";
         if (newBook.read == "Read") {
             newBook.read = "Unread";
             bookReadDiv.innerText = "Reading Status: Unread";
