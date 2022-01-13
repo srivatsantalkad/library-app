@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+form {
+    border: 1px solid black;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.books-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    border: 1px solid black;
+}
+
