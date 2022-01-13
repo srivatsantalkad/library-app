@@ -3,9 +3,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
+    background-color: coral;
 }
 nav {
+    font-size: 24px;
+    background-color: beige;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,18 +20,42 @@ nav {
 }
 
 form {
+    background-color: beige;
     border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px 10px;
     padding: 1em;
     display: flex;
     flex-direction: column;
     gap: 0.25em;
 }
 
+
 .books-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+}
+
+.books-container > div{
+    background-color: beige;
     border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px 10px;
+}
+
+button {
+    padding: 1em;
+    background-color: beige;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2.5px 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+    box-shadow: 1.25px 2.5px;
 }
 

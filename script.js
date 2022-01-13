@@ -42,7 +42,7 @@ function displayBook(newBook) {
     bookTitleDiv.innerText = "Title: " + (newBook.title == "" ? "N/A" : newBook.title);
     bookAuthorDiv.innerText = "Author: " + (newBook.author == "" ? "N/A" : newBook.author);
     bookPagesDiv.innerText = "# of Pages: " + (newBook.numOfPages == "" ? "N/A" : newBook.numOfPages);
-    bookReadDiv.innerText = "Read: " + (newBook.read == "" ? "N/A" : newBook.read);
+    bookReadDiv.innerText = "Reading Status: " + (newBook.read == "" ? "N/A" : newBook.read);
 
     bookDiv.appendChild(bookTitleDiv);
     bookDiv.appendChild(bookAuthorDiv);
@@ -56,6 +56,20 @@ function displayBook(newBook) {
     bookDiv.appendChild(removeBook);
     removeBook.addEventListener('click', () => {
         booksContainer.removeChild(bookDiv);
+    });
+
+    // Create new button that will be used to toggle the read status of the book.
+    let toggleRead = document.createElement('button');
+    bookDiv.appendChild(toggleRead);
+    toggleRead.innerText = (newBook.read == "Read") ? "Unread book" : "Fnish book";
+    toggleRead.addEventListener('click', () => {
+        if (newBook.read == "Read") {
+            newBook.read = "Unread";
+            bookReadDiv.innerText = "Reading Status: Unread";
+        } else {
+            newBook.read = "Read";
+            bookReadDiv.innerText = "Reading Status: Read";
+        }
     });
 
     bookDiv.style.cssText = "display:flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid black; border-radius: 20px; margin: 1em; padding: 1em; gap: 1em";
@@ -74,13 +88,13 @@ function getUserInput() {
     let numberOfPages = document.querySelector('#book-pages').value;
 
     // Prompt user for whether they have read the book
-    let bookRead = document.querySelector('#book-read').value;
+    let bookRead = document.querySelector('#book-read').checked ? "Read" : "Unread";
 
     // Clear contents of form
     document.querySelector('#book-title').value = "";
     document.querySelector('#book-author').value = "";
     document.querySelector('#book-pages').value = "";
-    document.querySelector('#book-read').value = "";
+    document.querySelector('#book-read').checked = false;
 
     return [bookTitle, bookAuthor, numberOfPages, bookRead];
 }
