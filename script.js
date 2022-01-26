@@ -7,7 +7,7 @@ const booksContainer = document.querySelector(".books-container");
 
 // Create event listener for add book
 addBook.addEventListener('click', () => {
-    addBookToLibrary();    
+    addBookToLibrary();
 });
 
 // Another global var is the book object constructor.
@@ -61,19 +61,29 @@ function displayBook(newBook) {
     // Create new button that will be used to toggle the read status of the book.
     let toggleRead = document.createElement('button');
     bookDiv.appendChild(toggleRead);
-    toggleRead.innerText = (newBook.read == "Read") ? "Unread book" : "Fnish book";
+
+    if (newBook.read == "Read") {
+        toggleRead.style.cssText = "color: white; background-color: red";
+        toggleRead.innerText = "Unread book";
+    } else {
+        toggleRead.style.cssText = "color: white; background-color: green";
+        toggleRead.innerText = "Fnish book";
+    }
     toggleRead.addEventListener('click', () => {
         toggleRead.innerText = (newBook.read != "Read") ? "Unread book" : "Fnish book";
         if (newBook.read == "Read") {
+            toggleRead.style.cssText = "color: white; background-color: green";
             newBook.read = "Unread";
             bookReadDiv.innerText = "Reading Status: Unread";
+
         } else {
+            toggleRead.style.cssText = "color: white; background-color: red";
             newBook.read = "Read";
             bookReadDiv.innerText = "Reading Status: Read";
         }
     });
 
-    bookDiv.style.cssText = "display:flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid black; border-radius: 20px; margin: 1em; padding: 1em; gap: 1em";
+    bookDiv.style.cssText = "display:flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid black; border-radius: 5px; margin: 1em; padding: 1em; gap: 1em";
     booksContainer.appendChild(bookDiv);
 }
 
@@ -106,8 +116,3 @@ function addBookToLibrary() {
     bookLibrary.push(newBook);
     displayBook(newBook);
 }
-
-
-
-
-
