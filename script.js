@@ -9,13 +9,13 @@ const booksContainer = document.querySelector(".books-container");
 addBook.addEventListener('click', () => {
     addBookToLibrary();
 });
-
-// Another global var is the book object constructor.
-function Book(title, author, numOfPages, read) {
-    this.title = title;
-    this.author = author;
-    this.numOfPages = numOfPages;
-    this.read = read;
+class Book {
+    constructor(title, author, numOfPages, read) {
+        this.title = title;
+        this.author = author;
+        this.numOfPages = numOfPages;
+        this.read = read;       
+    }
 }
 
 // This function will create a book object, provided the user input, and return it.
